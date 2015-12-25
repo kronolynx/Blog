@@ -7,12 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% flash.each do |name, msg| %>
-  <ul>
-    <li><%= msg %></li>
-  </ul>
-<% end %>
-<%= yield %>
+  <!-- we must add layout because the default folder is articles so the
+  # render will try to find it and give an error, we indicate the
+  # path to solve the problem -->
+  <%= render 'layouts/messages' %>
+  <%= yield %>
 
 </body>
 </html>

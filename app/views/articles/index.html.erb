@@ -11,6 +11,9 @@
       <td><%= article.description %></td>
       <td><%= link_to 'Edit', edit_article_path(article) %></td>
       <td><%= link_to 'Show', article_path(article) %></td>
+      <!-- as the path is the same as for show we need to specify the
+      method that will be called -->
+      <td><%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: "Are you sure?"}  %></td>
     </tr>
   <% end %>
 </table>
