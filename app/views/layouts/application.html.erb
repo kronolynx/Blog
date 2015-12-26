@@ -10,8 +10,11 @@
   <!-- we must add layout because the default folder is articles so the
   # render will try to find it and give an error, we indicate the
   # path to solve the problem -->
+  <%= render 'layouts/navigation' %>
   <%= render 'layouts/messages' %>
-  <%= yield %>
-
+  <div class="container">
+    <%= yield %>
+  </div>
+  <%= render 'layouts/footer' %>
 </body>
 </html>
