@@ -1,12 +1,5 @@
 <!-- check for errors if the form was previously submitted -->
-<% if @article.errors.any? %>
-  <h2>The form couldn't be submitted do to the following errors:</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'shared/errors', my_obj: @article %>
 
 <div class="row">
   <div class="col-xs-12">
@@ -24,7 +17,7 @@
           <%= f.label :description %>
         </div>
         <div class="col-sm-8">
-          <%= f.text_area :description, class: "form-control", rows: 10, placeholder: "Body of article+" %>
+          <%= f.text_area :description, class: "form-control", rows: 10, placeholder: "Body of article" %>
         </div>
       </div>
       <div class="form-group">
