@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>AlphaBlog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'=> true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track'=> true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
   <!-- we must add layout because the default folder is articles so the
   # render will try to find it and give an error, we indicate the
@@ -17,4 +19,5 @@
   </div>
   <%= render 'layouts/footer' %>
 </body>
+
 </html>

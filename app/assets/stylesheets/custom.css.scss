@@ -1,9 +1,7 @@
 // change the navigation bar color
 $navbar-default-bg: #016c64;
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 #logo {
     float: left;
     font-size: 1.7em;
@@ -19,35 +17,36 @@ $navbar-default-bg: #016c64;
 }
 
 .center {
-    text-align:center;
+    text-align: center;
 }
+
 .jumbotron {
     background-image: asset-url('funny-monkey.png');
-    background-size:cover;
-    height:550px;
-
+    background-size: cover;
+    height: 550px;
 }
+
 .jumbotron h1 {
-    color:#fff;
-    text-align:center;
+    color: #fff;
+    text-align: center;
     margin-bottom: 30px;
     letter-spacing: -1px;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 footer {
-    margin-top:45px;
-    padding-top:5px;
-    border-top:1px solid #eaeaea;
+    margin-top: 45px;
+    padding-top: 5px;
+    border-top: 1px solid #eaeaea;
     color: #777;
-
 }
+
 footer a:hover {
     color: #222;
 }
 
 footer small {
-    float:left;
+    float: left;
 }
 
 footer ul {
