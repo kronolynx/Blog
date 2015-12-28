@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
 
   before_action :set_article, only: [:edit, :update, :show, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
 
     def index
@@ -20,7 +22,7 @@ class ArticlesController < ApplicationController
 
     def create
         #render plain: params[:article].inspect #like print_r in php
-        @article = Article.new(article_params)
+        @article = Article.new(article_params )
         @article.user = User.first # temporary to asign user till implementing registration
         if  @article.save
             flash[:success] = "Article was successfully created"
@@ -54,13 +56,23 @@ class ArticlesController < ApplicationController
       flash[:danger] = "Article was successfully deleted"
       redirect_to articles_path
     end
-    # method to permit the params for create
+
+
     private
     #method to replace redundant variable
     def set_article
       @article = Article.find(params[:id])
     end
+
+    # method to permit the params for create
     def article_params
         params.require(:article).permit(:title, :description)
+    end
+
+    def require_same_user
+      if current_user != @article.user
+        flash[:danger] = "You can only edit or delete your own article"
+        redirect_to root_path
+      end
     end
 end
