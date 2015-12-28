@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
        # for pagination if we dont pass an extra parameter it will use the default
        #@articles = Article.paginate(page: params[:page])
        # extra parameter to display only the number of articles we want per page
-       @articles = Article.paginate(page: params[:page], per_page: 5)
+       @articles = Article.order(updated_at: :desc).paginate(page: params[:page], per_page: 5)
     end
     def new
         @article = Article.new
