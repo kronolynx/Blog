@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
     def create
         #render plain: params[:article].inspect #like print_r in php
         @article = Article.new(article_params)
+        @article.user = User.first # temporary to asign user till implementing registration
         if  @article.save
             flash[:success] = "Article was successfully created"
             # we need to redirect after creating the article
