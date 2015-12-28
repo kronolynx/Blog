@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
 
 
     def index
-        @articles = Article.all # we just get all the articles and saved them
+       #@articles = Article.all # we just get all the articles and save them
+       # for pagination if we dont pass an extra parameter it will use the default
+       #@articles = Article.paginate(page: params[:page])
+       # extra parameter to display only the number of articles we want per page
+       @articles = Article.paginate(page: params[:page], per_page: 5)
     end
     def new
         @article = Article.new
